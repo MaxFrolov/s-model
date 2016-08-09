@@ -1,0 +1,28 @@
+# Copy this file and modify it to match your development environment
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: s_model_development
+  username: username
+  password: password
+  host: localhost
+
+test:
+  <<: *default
+  database: s_model_test
+  username: username
+  password: password
+  host: localhost
+
+production:
+  <<: *default
+  database: s_model_production
+  username: s-model
+  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
